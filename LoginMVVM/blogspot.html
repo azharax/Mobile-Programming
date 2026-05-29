@@ -1,0 +1,36 @@
+<p>Nama: Muhammad Azhar Aziz<br />
+  NRP: 5025231131<br />
+  Kelas: Pemrograman Perangkat Bergerak - C</p>
+<p><span></span></p>
+<!--more-->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3><span style="font-size: medium; font-weight: 400;">Sourcecode: <a href="https://github.com/azharax/Mobile-Programming/blob/main/MarketplaceSiswa/app/src/main/java/com/example/marketplacesiswa/MainActivity.kt" target="_blank">Github</a></span></h3>
+
+<h3>Tampilan Sebelum Update UI</h3>
+<p>Sebelum dilakukan pembaruan, halaman login memiliki tampilan standar yang cukup kaku. Komponen input masih menggunakan <code>TextField</code> bawaan Jetpack Compose tanpa batas garis (outline) yang tegas, dan posisi form input hanya disusun biasa menggunakan Column tanpa penyelarasan (alignment) ke tengah layar. Tombol login juga berbentuk dan berwarna bawaan tanpa kustomisasi lebih lanjut.</p>
+<!-- Tempatkan gambar Tampilan Sebelum UI di sini -->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Tampilan Update UI</h3>
+<p>Pada pembaruan (refactor) desain antarmuka kali ini, saya mengubah gaya visual halaman login menjadi lebih rapi, modern, dan selaras dengan Material Design 3. Berikut adalah beberapa peningkatan yang telah diimplementasikan:</p>
+<ul>
+  <li><b>Pemusatan Layout:</b> Field dan tombol kini diselaraskan di tengah-tengah layar secara vertikal maupun horizontal, memberikan ruang yang lebih proporsional.</li>
+  <li><b>Penambahan Header Sapaan:</b> Menyediakan teks sapaan "Welcome Back" besar dan subtitle "Sign in to continue" menggunakan tipografi standar Material Theme untuk memperkuat identitas halaman.</li>
+  <li><b>Penggunaan OutlinedTextField:</b> Mengganti <code>TextField</code> biasa menjadi <code>OutlinedTextField</code> yang memiliki lebar membentang (<code>fillMaxWidth</code>) agar ukuran field lebih serasi untuk disentuh pada layar smartphone.</li>
+  <li><b>Visualisasi dengan Ikon:</b> Menyematkan ikon representatif pada field input, yaitu ikon <code>Person</code> untuk Username dan ikon <code>Lock</code> (gembok) pada bagian Password.</li>
+  <li><b>Kustomisasi Tombol:</b> Tombol Login diperbarui dengan tinggi yang lebih proporsional, sudut agak membulat (<code>medium shapes</code> dari MaterialTheme), serta pemanfaatan warna <code>primary</code> untuk meng-<i>highlight</i> urgensi dari tombol tersebut.</li>
+  <li><b>Feedback Berwarna:</b> Teks status login hasil interaksi ViewModel diatur untuk menggunakan warna primer saat berhasil, dan warna *error* (merah) saat gagal.</li>
+</ul>
+<!-- Tempatkan gambar Tampilan Update UI di sini -->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Hal yang Dipelajari</h3>
+<p>Melalui proses pengembangan fitur UI sederhana ini, beberapa hal utama yang berhasil saya pelajari meliputi:</p>
+<ul>
+  <li><b>Menata Layout di Jetpack Compose:</b> Memahami penggunaan *modifier* seperti <code>fillMaxSize</code>, <code>fillMaxWidth</code>, dan *spacing* dengan <code>Spacer</code>, serta mengatur <code>Arrangement</code> dan <code>Alignment</code> dengan optimal.</li>
+  <li><b>Penerapan Material Design 3:</b> Mengenal dan menerapkan komponen-komponen desain standar Google dari library Material3, seperti penggunaan skema warna (<code>MaterialTheme.colorScheme</code>) dan tipografi terpadu.</li>
+  <li><b>Integrasi Sederhana MVVM pada Tampilan:</b> Melihat pola yang jelas bagaimana state pada ViewModel (<code>loginState</code>) bereaksi dan terhubung dengan baik dengan Composable element sehingga UI reaktif mengikuti *state* datanya.</li>
+  <li><b>Pemecahan Masalah Dependensi Ikon:</b> Berlatih mengatasi error tidak ditemukannya objek visual (ikon <i>Visibility</i>) akibat dependensi <code>material-icons-extended</code>, lalu menyederhanakan kode untuk mengatasi kendala tersebut dengan memanfaatkan desain sederhana namun tetap efektif.</li>
+</ul>
+<p><br /></p>
