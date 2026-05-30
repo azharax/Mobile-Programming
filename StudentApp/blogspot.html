@@ -1,0 +1,40 @@
+<p>Nama: Muhammad Azhar Aziz<br />
+  NRP: 5025231131<br />
+  Kelas: Pemrograman Perangkat Bergerak - C</p>
+<p><span></span></p>
+<!--more-->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3><span style="font-size: medium; font-weight: 400;">Sourcecode: <a href="https://github.com/azharax/Mobile-Programming/blob/main/MarketplaceSiswa/app/src/main/java/com/example/marketplacesiswa/MainActivity.kt" target="_blank">Github</a></span></h3>
+
+<h3>Tampilan Awal</h3>
+<p>Pada tampilan awal, aplikasi Registrasi Siswa memiliki desain yang sangat mendasar. Form input menggunakan <code>TextField</code> standar tanpa garis luar yang tegas. Tombol tambah siswa terlihat biasa, dan daftar siswa yang ditampilkan belum sepenuhnya terlihat rapi karena kurangnya penggunaan batas card dan padding shadow yang mempertegas elemen daftar. Selain itu, fitur operasi seperti edit dan delete juga belum memunculkan interaksi konfirmasi atau popup yang ramah pengguna.</p>
+<!-- Tempatkan gambar Tampilan Awal di sini -->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Tampilan Setelah Tambahan Fitur</h3>
+<p>Pada iterasi pembaruan proyek kali ini, saya telah melakukan beberapa peningkatan baik dari segi fungsionalitas (UX) maupun antarmuka (UI). Berikut adalah fitur-fitur yang diubah dan ditambahkan ke dalam aplikasi:</p>
+<ul>
+  <li><b>Pembaruan Desain Input Form dan Card List:</b> Mengganti komponen input dari <code>TextField</code> biasa menjadi <code>OutlinedTextField</code> berbentuk kapsul (rounded corners 12.dp) agar terlihat lebih modern. Bagian daftar siswa juga diubah ke dalam bentuk <code>Card</code> dengan warna dasar putih dan elevasi bayangan, lengkap dengan pembaruan warna ikon taksi (ungu untuk Edit, merah untuk Delete).</li>
+<!-- Tempatkan gambar fitur Update Form & Card List di sini -->
+
+  <li><b>Avatar Profil dengan Warna Acak Konsisten:</b> Menambahkan inisial nama membulat (maksimal 2 huruf) sebagai avatar profil. Warnanya dipilih secara acak dari palet warna pastel, namun tetap konsisten menggunakan algoritma operasi <i>hash</i> dari <i>string</i> email pengguna sehingga tidak berubah-ubah tiap direload.</li>
+<!-- Tempatkan gambar fitur Avatar Profil di sini -->
+
+  <li><b>Fitur Edit Menggunakan Popup Interaktif:</b> Memisahkan fungsionalitas Edit Data menjadi form tersendiri layaknya pop-up. Memanfaatkan komponen <code>AlertDialog</code>, saat tombol Edit ditekan, sebuah dialog mandiri muncul tepat di tengah layar yang memungkinkan input pengubahan nama dan email secara independen tanpa mengganggu form tambah data.</li>
+<!-- Tempatkan gambar fitur Popup Edit di sini -->
+
+  <li><b>Popup Konfirmasi Hapus Data:</b> Mencegah penghapusan data secara tidak sengaja oleh pengguna dengan menambahkan sebuah <code>AlertDialog</code> konfirmasi. Saat ikon tempat sampah ditekan, akan muncul popup pertanyaan, dan sistem baru akan menghapus data tersebut dari Room Database jika tombol konfirmasi ditekan.</li>
+<!-- Tempatkan gambar fitur Popup Hapus di sini -->
+</ul>
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Hal yang Dipelajari</h3>
+<p>Melalui proses perbaikan dan pengembangan fitur aplikasi Registrasi Siswa ini, saya telah mempraktikkan dan mempelajari sejumlah hal signifikan:</p>
+<ul>
+  <li><b>Troubleshooting Build Configuration Android:</b> Mengatasi berbagai persoalan pada konfigurasi Gradle secara langsung, seperti inkonsistensi versi plugin Jetpack Compose (Kotlin 2.0+), perbaikan missing API level, penambahan <code>android.useAndroidX=true</code>, serta meratakan konfigurasi JVM Target versi 11 antara Javac dan <i>Kotlin Symbol Processing</i> (KSP).</li>
+  <li><b>State Management dan Dialog di Compose:</b> Memahami secara nyata mekanisme *trigger* untuk menyembunyikan dan memunculkan pop-up (<code>AlertDialog</code>) menggunakan bantuan state hoisting (<code>remember { mutableStateOf() }</code>).</li>
+  <li><b>Manipulasi String & Hash:</b> Menggunakan operasi dasar bawaan Kotlin untuk mengekstrak string nama menjadi inisial ganda (<code>take(2)</code>, <code>uppercase()</code>) serta cara cemerlang memanipulasi perhitungan <i>hash algorithm</i> (<code>abs(string.hashCode() % warna.size)</code>) demi membuat warna avatar unik namun konsisten bagi setiap subjek data.</li>
+  <li><b>Peningkatan Pola Desain (Material3):</b> Praktik langsung dalam merapikan hierarki layout menjadi komponen UI standar <i>Material3</i> (<code>OutlinedTextField</code>, Card Elevasi) serta pemakaian Modifier dan pembagian tata letak Row/Column di Jetpack Compose.</li>
+</ul>
+<p><br /></p>
