@@ -1,0 +1,52 @@
+<p>Nama: Muhammad Azhar Aziz<br />
+  NRP: 5025231131<br />
+  Kelas: Pemrograman Perangkat Bergerak - C</p>
+<p><span></span></p>
+<!--more-->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3><span style="font-size: medium; font-weight: 400;">Sourcecode: <a href="https://github.com/azharax/Mobile-Programming/tree/main/NewsApp" target="_blank">Github</a></span></h3>
+
+<p>News App adalah aplikasi Android yang menampilkan berita terkini dari REST API (NewsAPI). Aplikasi ini dibuat dengan arsitektur <b>MVVM</b> dan memakai <i>Jetpack Compose</i>, <i>Kotlin Coroutines</i>, <i>Retrofit</i>, <i>StateFlow</i>, serta <i>Coil</i> untuk memuat gambar.</p>
+
+<h3>Tampilan Awal</h3>
+<p>Pada tampilan awal, aplikasi dibuat mengikuti panduan dasar pada modul. Fokusnya cuma satu: menampilkan daftar berita dari internet ke layar. Berita diambil dari endpoint <code>top-headlines</code> NewsAPI lewat <i>Retrofit</i>, lalu hasilnya dialirkan ke UI menggunakan <code>StateFlow</code> dari dalam <code>ViewModel</code>.</p>
+<p>Di versi ini hanya ada dua halaman, yaitu <b>Home</b> (daftar berita) dan <b>Detail</b> (isi berita). Setiap berita ditampilkan dalam bentuk <code>Card</code> sederhana berisi gambar dan judul saja. Aplikasi juga sudah menangani tiga kondisi state: <i>Loading</i> (muncul lingkaran <code>CircularProgressIndicator</code>), <i>Success</i> (daftar berita tampil), dan <i>Error</i> (muncul pesan kesalahan beserta tombol <i>Retry</i>).</p>
+<p>Secara tampilan masih sangat polos. Semua kartu berbentuk seragam, belum ada fitur pencarian, belum ada fitur simpan berita, dan belum ada navigasi tab. Tujuannya memang untuk memastikan alur data dari API sampai ke layar berjalan dulu dengan benar.</p>
+<!-- Tempatkan gambar Tampilan Awal di sini -->
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Tampilan Setelah Tambahan Fitur</h3>
+<p>Pada pembaruan kali ini, saya merapikan tampilan agar lebih modern sekaligus menambah beberapa fitur baru. Berikut perubahan yang dilakukan:</p>
+<ul>
+  <li><b>Navigasi Tab (Home, Search, Saved):</b> Menambahkan tiga tab di bagian atas memakai <code>PrimaryTabRow</code>. Setiap tab punya ikon dan label sendiri, sehingga pengguna bisa berpindah antar halaman dengan mudah.</li>
+<!-- Tempatkan gambar fitur Navigasi Tab di sini -->
+
+  <li><b>Perombakan Halaman Home:</b> Berita pertama kini tampil sebagai <i>featured card</i> berukuran besar dengan judul di atas gambar dan efek <i>gradient</i> gelap agar teks mudah dibaca. Di bawahnya ada bagian "Breaking News" berisi daftar berita dalam bentuk baris ringkas (gambar kecil di kiri, judul beserta kategori dan waktu di kanan, misalnya "TECHNOLOGY · 2 hours ago").</li>
+<!-- Tempatkan gambar fitur Home Baru di sini -->
+
+  <li><b>Fitur Search:</b> Menambahkan halaman pencarian yang memakai endpoint <code>everything</code> dari NewsAPI. Pengguna tinggal mengetik kata kunci, lalu hasilnya muncul dalam daftar "Search Result". Halaman ini juga punya state kosong, loading, dan error sendiri.</li>
+<!-- Tempatkan gambar fitur Search di sini -->
+
+  <li><b>Fitur Save dengan Room Database:</b> Berita bisa disimpan secara lokal di perangkat menggunakan <i>Room Database</i>. Berita yang disimpan langsung muncul di tab Saved secara <i>real-time</i> berkat penggunaan <code>Flow</code>. Data tetap tersimpan walaupun aplikasi ditutup.</li>
+<!-- Tempatkan gambar fitur Save di sini -->
+
+  <li><b>Halaman Detail yang Lebih Lengkap:</b> Halaman Detail kini menampilkan kategori, waktu terbit, dan penulis. Di bagian bawah ada tombol <i>bookmark</i> untuk menyimpan/menghapus berita (ikon berubah sesuai status simpan) dan tombol <i>share</i> untuk membagikan berita ke aplikasi lain lewat <code>Intent</code>.</li>
+<!-- Tempatkan gambar fitur Detail di sini -->
+
+  <li><b>Pembaruan Tampilan:</b> Mengganti seluruh ikon dari emoji menjadi <i>Material Icons</i> resmi, serta menyeragamkan warna aplikasi ke warna biru sebagai identitas (<i>brand color</i>) agar terlihat lebih rapi dan konsisten.</li>
+<!-- Tempatkan gambar fitur Tampilan Baru di sini -->
+</ul>
+<div class="separator" style="clear: both; text-align: center;"><br /></div>
+
+<h3>Hal yang Dipelajari</h3>
+<p>Melalui proses pembuatan dan pengembangan aplikasi News App ini, ada beberapa hal penting yang saya pelajari:</p>
+<ul>
+  <li><b>Konsumsi REST API:</b> Cara mengambil data dari web service (NewsAPI) memakai <i>Retrofit</i> dan <i>Kotlin Coroutines</i>, lalu mengubah respons JSON menjadi objek Kotlin dengan bantuan <i>Gson</i>.</li>
+  <li><b>Arsitektur MVVM dan State Management:</b> Memisahkan kode menjadi beberapa lapisan (data, repository, viewmodel, ui) dan mengelola kondisi tampilan dengan <code>StateFlow</code> melalui <i>sealed class</i> (Loading, Success, Error) agar UI mudah merespons perubahan data.</li>
+  <li><b>Penyimpanan Lokal dengan Room:</b> Membuat <i>Entity</i>, <i>DAO</i>, dan database untuk menyimpan berita favorit, serta memakai <code>Flow</code> supaya daftar tersimpan otomatis ter-update tanpa perlu di-refresh manual.</li>
+  <li><b>Navigation Compose:</b> Mengatur perpindahan antar halaman (Home ke Detail) dan mengirim data berita yang dipilih lewat <code>ViewModel</code> yang dipakai bersama.</li>
+  <li><b>Memuat Gambar dari Internet:</b> Menggunakan <i>Coil</i> (<code>AsyncImage</code>) untuk menampilkan gambar berita langsung dari URL.</li>
+  <li><b>Troubleshooting Kompatibilitas Versi:</b> Menyesuaikan versi <i>library</i> dengan Kotlin 2.2.10 dan AGP 9, termasuk mengatasi konflik antara <i>built-in Kotlin</i> AGP dengan <i>Kotlin Symbol Processing</i> (KSP) saat memasang Room (menambahkan <code>android.disallowKotlinSourceSets=false</code>), serta memilih versi KSP dan Room yang cocok agar aplikasi bisa <i>build</i> dengan lancar.</li>
+</ul>
+<p><br /></p>
